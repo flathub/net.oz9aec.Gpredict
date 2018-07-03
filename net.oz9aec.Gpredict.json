@@ -63,7 +63,7 @@
 			],
 			"post-install": [
 				"for size in 16 24 32 48 64 128 256 512; do
-					rsvg-convert -w $size -h $size -f png -o $size.png share/pixmaps/gpredict/logos/gpredict_icon_color.svg
+					rsvg-convert -w $size -h $size -f png -o $size.png pixmaps/logos/gpredict_icon_color.svg
 					install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/gpredict-icon.png
 				done"
 			]
