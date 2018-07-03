@@ -24,9 +24,9 @@
 <image type="source">https://comzeradd.fedorapeople.org/screenshots/gpredict1.png</image>
 </screenshot>
 </screenshots>
-	<releases>
-		<release version="2.2.1" date="2018-01-21"/>
-		<release version="2.2" date="2018-01-05"/>
+<releases>
+    <release version="2.2.1" date="2018-01-21"/>
+    <release version="2.2" date="2018-01-05"/>
 </releases>
 <launchable type="desktop-id">gpredict.desktop</launchable>
 <languages>
