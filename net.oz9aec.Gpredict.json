@@ -1,7 +1,7 @@
 {
 	"app-id": "net.oz9aec.Gpredict",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.28",
+	"runtime-version": "3.34",
 	"sdk": "org.gnome.Sdk",
 	"command": "gpredict",
 	"copy-icon": true,
@@ -12,14 +12,11 @@
 		"--socket=wayland",
 		"--share=network", "--persist=.config/Gpredict"
 	],
-	"build-options" : {
-		"cflags": "-O2 -g",
-		"cxxflags": "-O2 -g"
-	},
 	"cleanup": ["/include", "/lib/debug", "/share/man", "/share/gtk-doc", "/share/doc/hamlib" ],
 	"modules": [
 		{
 			"name": "libgoocanvas",
+	        "config-opts": ["--enable-python=no"],
 			"sources": [
 				{
 					"type": "archive",
@@ -52,6 +49,7 @@
 				}
 			]
 		},
+		"shared-modules/intltool/intltool-0.51.json",
 		{
 			"name": "gpredict",
 			"sources": [
