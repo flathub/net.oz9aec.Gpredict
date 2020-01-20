@@ -1,7 +1,7 @@
 {
 	"app-id": "net.oz9aec.Gpredict",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.28",
+	"runtime-version": "3.34",
 	"sdk": "org.gnome.Sdk",
 	"command": "gpredict",
 	"copy-icon": true,
@@ -12,14 +12,11 @@
 		"--socket=wayland",
 		"--share=network", "--persist=.config/Gpredict"
 	],
-	"build-options" : {
-		"cflags": "-O2 -g",
-		"cxxflags": "-O2 -g"
-	},
 	"cleanup": ["/include", "/lib/debug", "/share/man", "/share/gtk-doc", "/share/doc/hamlib" ],
 	"modules": [
 		{
 			"name": "libgoocanvas",
+	        "config-opts": ["--enable-python=no"],
 			"sources": [
 				{
 					"type": "archive",
@@ -38,20 +35,7 @@
 				}
 			]
 		},
-		{
-			"name": "appdata",
-			"buildsystem": "simple",
-			"build-commands": [
-				"mkdir -p /app/share/appdata",
-				"install -Dm644 net.oz9aec.Gpredict.appdata.xml /app/share/appdata/net.oz9aec.Gpredict.appdata.xml"
-			],
-			"sources": [
-				{
-					"type": "file",
-					"path": "net.oz9aec.Gpredict.appdata.xml"
-				}
-			]
-		},
+		"shared-modules/intltool/intltool-0.51.json",
 		{
 			"name": "gpredict",
 			"sources": [
@@ -59,9 +43,14 @@
 					"type": "archive",
 					"url": "https://github.com/csete/gpredict/archive/v2.2.1.tar.gz",
 					"sha256": "95079091c0423decbbcb16d1044d6a793c8c8d91b66f116bdf766dfac5404468"
+				},
+				{
+					"type": "file",
+					"path": "net.oz9aec.Gpredict.appdata.xml"
 				}
 			],
 			"post-install": [
+				"install -Dm644 ${FLATPAK_ID}.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml",
 				"for size in 16 24 32 48 64 128 256 512; do
 					rsvg-convert -w $size -h $size -f png -o $size.png pixmaps/logos/gpredict_icon_color.svg
 					install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/gpredict-icon.png
