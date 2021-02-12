@@ -1,7 +1,7 @@
 {
 	"app-id": "net.oz9aec.Gpredict",
 	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.34",
+	"runtime-version": "3.36",
 	"sdk": "org.gnome.Sdk",
 	"command": "gpredict",
 	"copy-icon": true,
