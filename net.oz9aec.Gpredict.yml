@@ -34,9 +34,13 @@ modules:
   - shared-modules/intltool/intltool-0.51.json
   - name: gpredict
     sources:
+      - type: patch
+        path: no-configure.patch
+        use-git: true
       - type: git
         url: https://github.com/csete/gpredict
         commit: aa5771036f078e8f5bafa958661ac98ad3ed8f32
+        disable-shallow-clone: true
       - type: file
         path: net.oz9aec.Gpredict.appdata.xml
     post-install:
