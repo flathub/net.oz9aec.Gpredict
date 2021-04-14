@@ -1,0 +1,44 @@
+app-id: net.oz9aec.Gpredict
+runtime: org.gnome.Platform
+runtime-version: '40'
+sdk: org.gnome.Sdk
+command: gpredict
+copy-icon: true
+rename-icon: gpredict-icon
+rename-desktop-file: gpredict.desktop
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --share=network
+  - --persist=.config/Gpredict
+cleanup:
+  - /include
+  - /lib/debug
+  - /share/man
+  - /share/gtk-doc
+  - /share/doc/hamlib
+modules:
+  - name: libgoocanvas
+    config-opts:
+      - --enable-python=no
+    sources:
+      - type: archive
+        url: http://ftp.gnome.org/pub/GNOME/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz
+        sha256: c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90
+  - name: hamlib
+    sources:
+      - type: archive
+        url: https://sourceforge.net/projects/hamlib/files/hamlib/4.1/hamlib-4.1.tar.gz
+        sha256: b4d4b9467104d1f316c044d002c4c8e62b9f792cbb55558073bd963203b32342
+  - shared-modules/intltool/intltool-0.51.json
+  - name: gpredict
+    sources:
+      - type: git
+        url: https://github.com/csete/gpredict
+        commit: aa5771036f078e8f5bafa958661ac98ad3ed8f32
+      - type: file
+        path: net.oz9aec.Gpredict.appdata.xml
+    post-install:
+      - install -Dm644 ${FLATPAK_ID}.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml
+      - for size in 16 24 32 48 64 128 256 512; do rsvg-convert -w $size -h $size -f png -o $size.png pixmaps/logos/gpredict_icon_color.svg; install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/gpredict-icon.png; done
