@@ -1,0 +1,14 @@
+diff --git a/autogen.sh b/autogen.sh
+index ff4da99..001d1e3 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -51,8 +51,7 @@ echo "- autoconf."		&& \
+   autoconf			&& \
+ echo "- automake."		&& \
+   automake --add-missing --gnu	&& \
+-echo				&& \
+-  ./configure "$@"		&& exit 0
++exit 0
+ 
+ exit 1
+ 
