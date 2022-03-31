@@ -39,7 +39,7 @@ modules:
         use-git: true
       - type: git
         url: https://github.com/csete/gpredict
-        commit: aa5771036f078e8f5bafa958661ac98ad3ed8f32
+        commit: a0a563684702ad4d1de6e128ca9219d6ee9daa47
         disable-shallow-clone: true
       - type: file
         path: net.oz9aec.Gpredict.appdata.xml
