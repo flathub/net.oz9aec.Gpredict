@@ -37,6 +37,9 @@ modules:
       - type: patch
         path: no-configure.patch
         use-git: true
+      - type: patch
+        path: cs-po.patch
+        use-git: true
       - type: git
         url: https://github.com/csete/gpredict
         commit: a0a563684702ad4d1de6e128ca9219d6ee9daa47
