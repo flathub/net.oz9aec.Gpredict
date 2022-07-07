@@ -1,5 +1,5 @@
 diff --git a/po/cs.po b/po/cs.po
-index ca0871b..2b2aa84 100644
+index ca0871b..ef2f029 100644
 --- a/po/cs.po
 +++ b/po/cs.po
 @@ -1051,7 +1051,7 @@ msgstr "Míra"
@@ -11,6 +11,15 @@ index ca0871b..2b2aa84 100644
  
  #: ../src/gtk-sat-list.c:60 ../src/gtk-sat-list.c:93 ../src/gtk-single-sat.c:53
  msgid "Next AOS"
+@@ -2544,7 +2544,7 @@ msgstr "Bez transpondérů"
+ 
+ #: ../src/menubar.c:909
+ msgid "_Preferences"
+-msgstr "_Nastaveni"
++msgstr "_Nastavení"
+ 
+ #: ../src/menubar.c:922
+ msgid "_Online help"
 @@ -2603,7 +2603,7 @@ msgstr "%s: Modul nemá žádné QTH; použít výchozí."
  #.
  #: ../src/mod-cfg.c:329 ../src/mod-cfg.c:389 ../src/mod-cfg.c:774
