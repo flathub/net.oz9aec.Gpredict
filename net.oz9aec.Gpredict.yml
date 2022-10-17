@@ -14,7 +14,6 @@ finish-args:
   - --persist=.config/Gpredict
 cleanup:
   - /include
-  - /lib/debug
   - /share/man
   - /share/gtk-doc
   - /share/doc/hamlib
