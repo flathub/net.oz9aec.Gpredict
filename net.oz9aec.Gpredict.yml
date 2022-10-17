@@ -1,6 +1,6 @@
 app-id: net.oz9aec.Gpredict
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 command: gpredict
 copy-icon: true
@@ -37,12 +37,9 @@ modules:
       - type: patch
         path: no-configure.patch
         use-git: true
-      - type: patch
-        path: cs-po.patch
-        use-git: true
       - type: git
         url: https://github.com/csete/gpredict
-        commit: a0a563684702ad4d1de6e128ca9219d6ee9daa47
+        commit: 0f3beb6adee605cf117ccaeabfe3e4ff6251c0af
         disable-shallow-clone: true
       - type: file
         path: net.oz9aec.Gpredict.appdata.xml
