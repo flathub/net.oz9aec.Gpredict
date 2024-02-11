@@ -1,6 +1,6 @@
 app-id: net.oz9aec.Gpredict
 runtime: org.gnome.Platform
-runtime-version: '44'
+runtime-version: '45'
 sdk: org.gnome.Sdk
 command: gpredict
 copy-icon: true
