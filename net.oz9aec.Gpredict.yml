@@ -1,6 +1,6 @@
 app-id: net.oz9aec.Gpredict
 runtime: org.gnome.Platform
-runtime-version: '46'
+runtime-version: '47'
 sdk: org.gnome.Sdk
 command: gpredict
 copy-icon: true
@@ -18,6 +18,8 @@ cleanup:
   - /share/gtk-doc
   - /share/doc/hamlib
 modules:
+  - shared-modules/intltool/intltool-0.51.json
+
   - name: libgoocanvas
     config-opts:
       - --enable-python=no
@@ -25,12 +27,15 @@ modules:
       - type: archive
         url: http://ftp.gnome.org/pub/GNOME/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz
         sha256: c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90
+      - type: patch
+        path: goocanvas-fix-build.patch
+
   - name: hamlib
     sources:
       - type: archive
         url: https://sourceforge.net/projects/hamlib/files/hamlib/4.1/hamlib-4.1.tar.gz
         sha256: b4d4b9467104d1f316c044d002c4c8e62b9f792cbb55558073bd963203b32342
-  - shared-modules/intltool/intltool-0.51.json
+
   - name: gpredict
     sources:
       - type: patch
