@@ -33,8 +33,8 @@ modules:
   - name: hamlib
     sources:
       - type: archive
-        url: https://github.com/Hamlib/Hamlib/releases/download/4.6.3/hamlib-4.6.3.tar.gz
-        sha256: aefd1b1e53a8548870a266ae362044ad3ff43008d10f1050c965cf99ac5a9630
+        url: https://github.com/Hamlib/Hamlib/releases/download/4.6.4/hamlib-4.6.4.tar.gz
+        sha256: 5a92e93e805b2263c63da40028d67580fda15752b5389c68b237203f29b592bb
         x-checker-data:
           type: anitya
           project-id: 1292
@@ -53,4 +53,7 @@ modules:
         path: net.oz9aec.Gpredict.appdata.xml
     post-install:
       - install -Dm644 ${FLATPAK_ID}.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml
-      - for size in 16 24 32 48 64 128 256 512; do rsvg-convert -w $size -h $size -f png -o $size.png pixmaps/logos/gpredict_icon_color.svg; install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/gpredict-icon.png; done
+      - for size in 16 24 32 48 64 128 256 512; do rsvg-convert -w $size -h $size
+        -f png -o $size.png pixmaps/logos/gpredict_icon_color.svg; install -Dm644
+        $size.png /app/share/icons/hicolor/${size}x${size}/apps/gpredict-icon.png;
+        done
