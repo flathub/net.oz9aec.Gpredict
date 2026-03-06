@@ -2,7 +2,9 @@
 <component type="desktop-application">
   <id>net.oz9aec.Gpredict</id>
   <name>Gpredict</name>
-  <developer_name>Alexandru Csete</developer_name>
+  <developer id="net.oz9aec">
+    <name>Alexandru Csete</name>
+  </developer>
   <summary>Real-time satellite tracking and orbit prediction program</summary>
   <description>
     <p>Gpredict is a real time satellite tracking and orbit prediction program written using the Gtk+ widgets.</p>
@@ -25,6 +27,8 @@
     <id>gpredict.desktop</id>
   </provides>
   <url type="homepage">http://gpredict.oz9aec.net</url>
+  <url type="bugtracker">https://github.com/csete/gpredict/issues</url>
+  <url type="vcs-browser">https://github.com/csete/gpredict</url>
   <screenshots>
     <screenshot type="default">
       <image>https://comzeradd.fedorapeople.org/screenshots/gpredict1.png</image>
