@@ -14,9 +14,15 @@ finish-args:
   - --persist=.config/Gpredict
 cleanup:
   - /include
+  - /lib/pkgconfig
+  - /lib/*/girepository-1.0
+  - /share/aclocal
+  - /share/gir-1.0
   - /share/man
   - /share/gtk-doc
-  - /share/doc/hamlib
+  - /share/doc
+  - '*.la'
+  - '*.a'
 modules:
   - shared-modules/intltool/intltool-0.51.json
 
@@ -42,13 +48,13 @@ modules:
 
   - name: gpredict
     sources:
-      - type: patch
-        path: no-configure.patch
-        use-git: true
       - type: git
         url: https://github.com/csete/gpredict
         commit: 0f3beb6adee605cf117ccaeabfe3e4ff6251c0af
         disable-shallow-clone: true
+      - type: patch
+        path: no-configure.patch
+        use-git: true
       - type: file
         path: net.oz9aec.Gpredict.appdata.xml
     post-install:
