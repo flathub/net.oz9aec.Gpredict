@@ -26,7 +26,7 @@
   <provides>
     <id>gpredict.desktop</id>
   </provides>
-  <url type="homepage">http://gpredict.oz9aec.net</url>
+  <url type="homepage">https://oz9aec.dk/gpredict/</url>
   <url type="bugtracker">https://github.com/csete/gpredict/issues</url>
   <url type="vcs-browser">https://github.com/csete/gpredict</url>
   <screenshots>
