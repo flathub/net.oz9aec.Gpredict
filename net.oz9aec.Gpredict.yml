@@ -1,10 +1,10 @@
 app-id: net.oz9aec.Gpredict
 runtime: org.gnome.Platform
-runtime-version: '49'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 command: gpredict
 copy-icon: true
-rename-icon: gpredict-icon
+rename-icon: gpredict_icon_color
 rename-desktop-file: gpredict.desktop
 finish-args:
   - --share=ipc
@@ -17,10 +17,10 @@ cleanup:
   - /lib/pkgconfig
   - /lib/*/girepository-1.0
   - /share/aclocal
-  - /share/gir-1.0
-  - /share/man
-  - /share/gtk-doc
   - /share/doc
+  - /share/gir-1.0
+  - /share/gtk-doc
+  - /share/man
   - '*.la'
   - '*.a'
 modules:
@@ -47,6 +47,9 @@ modules:
           url-template: https://github.com/Hamlib/Hamlib/releases/download/$version/hamlib-$version.tar.gz
 
   - name: gpredict
+    post-install:
+      - install -Dm644 ${FLATPAK_ID}.appdata.xml -t /app/share/metainfo/
+      - install -Dm644 pixmaps/logos/gpredict_icon_color.svg -t /app/share/icons/hicolor/scalable/apps/
     sources:
       - type: git
         url: https://github.com/csete/gpredict
@@ -57,9 +60,3 @@ modules:
         use-git: true
       - type: file
         path: net.oz9aec.Gpredict.appdata.xml
-    post-install:
-      - install -Dm644 ${FLATPAK_ID}.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml
-      - for size in 16 24 32 48 64 128 256 512; do rsvg-convert -w $size -h $size
-        -f png -o $size.png pixmaps/logos/gpredict_icon_color.svg; install -Dm644
-        $size.png /app/share/icons/hicolor/${size}x${size}/apps/gpredict-icon.png;
-        done
