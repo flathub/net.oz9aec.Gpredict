@@ -1,7 +1,7 @@
 app-id: net.oz9aec.Gpredict
-runtime: org.gnome.Platform
-runtime-version: '50'
-sdk: org.gnome.Sdk
+runtime: org.freedesktop.Platform
+runtime-version: '26.08'
+sdk: org.freedesktop.Sdk
 command: gpredict
 copy-icon: true
 rename-icon: gpredict_icon_color
@@ -48,15 +48,14 @@ modules:
 
   - name: gpredict
     post-install:
-      - install -Dm644 ${FLATPAK_ID}.appdata.xml -t /app/share/metainfo/
+      - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 pixmaps/logos/gpredict_icon_color.svg -t /app/share/icons/hicolor/scalable/apps/
     sources:
-      - type: git
-        url: https://github.com/csete/gpredict
-        commit: 0f3beb6adee605cf117ccaeabfe3e4ff6251c0af
-        disable-shallow-clone: true
+      - type: archive
+        url: https://github.com/csete/gpredict/releases/download/v2.6/gpredict-2.6.tar.bz2
+        sha256: f4e6967cb2eeb6d74b8e8208c90dc8f4b1c00955ae1049753ad8352c927e54a3
       - type: patch
         path: no-configure.patch
         use-git: true
       - type: file
-        path: net.oz9aec.Gpredict.appdata.xml
+        path: net.oz9aec.Gpredict.metainfo.xml
